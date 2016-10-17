@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let address of addresses">
+    {{address.name}} - {{address.street}} - {{address.place}}
+    <button type="button" name="button" [routerLink]="['/form', address.id]">edit</button>
+    <button type="button" name="button" (click)="remove(address.id)">delete</button>
+  </li>
+</ul>
+
+<a routerLink="/form">Neuer Datensatz</a>

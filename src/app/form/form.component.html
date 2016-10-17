@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()" #addressForm="ngForm">
+  <div>
+    <label for="name">Name: </label>
+    <input type="text" id="name" required [(ngModel)]="address.name" name="name" required>
+  </div>
+  <div>
+    <label for="street">Straße: </label>
+    <input type="text" id="street" required [(ngModel)]="address.street" name="street">
+  </div>
+  <div>
+    <label for="place">Ort: </label>
+    <input type="text" id="place" required [(ngModel)]="address.place" name="place">
+  </div>
+  <button type="submit" [disabled]="!addressForm.form.valid">Submit</button>
+</form>
