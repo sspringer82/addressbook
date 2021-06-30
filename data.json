@@ -1,0 +1,40 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstname": "Clint",
+      "lastname": "Mueller",
+      "birthday": "1983-03-01",
+      "street": "5524 Rosenbaum Trace",
+      "place": "East Roslyn",
+      "postcode": "ME 63135",
+      "country": "United States of America",
+      "phone": "207.570.2512 x2317",
+      "email": "Clint38@yahoo.com"
+    },
+    {
+      "id": 2,
+      "firstname": "Eda",
+      "lastname": "Lockman",
+      "birthday": "1971-5-17",
+      "street": "3460 Prohaska Valley",
+      "place": "West Shaunville",
+      "postcode": "MN 00724",
+      "country": "United States of America",
+      "phone": "(414) 811-1972",
+      "email": "Eda20@yahoo.com"
+    },
+    {
+      "id": 3,
+      "firstname": "Grace",
+      "lastname": "Kirlin",
+      "birthday": "1969-4-28",
+      "street": "13841 Hane Bypass",
+      "place": "Gleasonfurt",
+      "postcode": "CT 01752",
+      "country": "United States of America",
+      "phone": "971-808-4325",
+      "email": "Grace_Kirlin96@hotmail.com"
+    }
+  ]
+}
