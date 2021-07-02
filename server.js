@@ -32,6 +32,11 @@ app.get('/fakeUsers/:number', (req, res) => {
 });
 
 app.use('/', (req, res, next) => {
+  res.setHeader('Cache-Control', 'public, max-age=31536000');
+  next();
+});
+
+app.use('/', (req, res, next) => {
   if (
     req.path.startsWith('/list') ||
     req.path.startsWith('/edit') ||

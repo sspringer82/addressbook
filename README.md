@@ -13,3 +13,4 @@
   - https://rollupjs.org/
   - https://webpack.js.org/
   - https://www.snowpack.dev/
+- https://nextjs.org/
