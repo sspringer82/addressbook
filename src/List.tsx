@@ -7,9 +7,10 @@ import {
   TableBody,
   Table,
   Fab,
+  TextField,
 } from '@material-ui/core';
 import { Address } from './Address';
-import React, { Suspense, useEffect } from 'react';
+import React, { ChangeEvent, Suspense, useEffect } from 'react';
 import { useState } from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import { useHistory } from 'react-router-dom';
@@ -21,6 +22,21 @@ const ListItem = React.lazy(() => import('./ListItem'));
 const List: React.FC = () => {
   const history = useHistory();
   const [addresses, setAddresses] = useState<Address[]>([]);
+  const [filter, setFilter] = useState('');
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fetch('http://localhost:3001/users?firstname_like=' + filter)
+        .then((response) => response.json())
+        .then((data) => setAddresses(data));
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [filter]);
+
+  const handleFilterChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFilter(e.currentTarget.value);
+  };
 
   useEffect(() => {
     fetch('http://localhost:3001/users')
@@ -47,6 +63,7 @@ const List: React.FC = () => {
 
   return (
     <Suspense fallback={<PacmanLoader />}>
+      <TextField name="filter" value={filter} onChange={handleFilterChange} />
       <TableContainer component={Paper} style={{ marginBottom: 80 }}>
         <Table>
           <TableHead>
