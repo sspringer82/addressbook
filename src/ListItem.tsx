@@ -5,6 +5,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import SearchIcon from '@material-ui/icons/Search';
 import { useHistory } from 'react-router-dom';
 import { getContact } from './util1';
+import React from 'react';
 
 const StyledTableRow = withStyles((theme) => ({
   root: {
@@ -30,7 +31,13 @@ const ListItem: React.FC<Props> = ({ address, onDelete }) => {
       <TableCell>{address.lastname}</TableCell>
       <TableCell>{address.email}</TableCell>
       <TableCell>
-        <IconButton onClick={() => onDelete(address)}>
+        <IconButton
+          // onClick={React.useCallback(() => onDelete(address), [address, onDelete])}
+          onClick={React.useMemo(
+            () => () => onDelete(address),
+            [address, onDelete],
+          )}
+        >
           <DeleteIcon />
         </IconButton>
       </TableCell>

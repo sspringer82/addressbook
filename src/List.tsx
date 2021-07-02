@@ -58,7 +58,13 @@ const List: React.FC = () => {
           </TableHead>
           <TableBody>
             {addresses.map((address) => {
-              return <ListItem address={address} onDelete={handleDelete} />;
+              return (
+                <ListItem
+                  key={address.id}
+                  address={address}
+                  onDelete={handleDelete}
+                />
+              );
             })}
           </TableBody>
         </Table>

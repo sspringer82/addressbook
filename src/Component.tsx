@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect } from 'react';
 
 const Component = () => {
@@ -9,7 +10,12 @@ const Component = () => {
     return () => {};
   }, []);
 
-  return <div>Hallo Welt</div>;
+  return (
+    <>
+      <div>Hallo</div>
+      <div>Welt</div>
+    </>
+  );
 };
 
 export default Component;
