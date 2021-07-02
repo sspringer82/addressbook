@@ -9,11 +9,13 @@ import {
   Fab,
 } from '@material-ui/core';
 import { Address } from './Address';
-import { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { useState } from 'react';
-import ListItem from './ListItem';
 import AddIcon from '@material-ui/icons/Add';
 import { useHistory } from 'react-router-dom';
+import { PacmanLoader } from 'react-spinners';
+// import ListItem from './ListItem';
+const ListItem = React.lazy(() => import('./ListItem'));
 
 const List: React.FC = () => {
   const history = useHistory();
@@ -40,7 +42,7 @@ const List: React.FC = () => {
   }
 
   return (
-    <>
+    <Suspense fallback={<PacmanLoader />}>
       <TableContainer component={Paper} style={{ marginBottom: 80 }}>
         <Table>
           <TableHead>
@@ -68,7 +70,7 @@ const List: React.FC = () => {
       >
         <AddIcon />
       </Fab>
-    </>
+    </Suspense>
   );
 };
 
