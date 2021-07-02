@@ -14,6 +14,7 @@ import { useState } from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import { useHistory } from 'react-router-dom';
 import { PacmanLoader } from 'react-spinners';
+import produce from 'immer';
 // import ListItem from './ListItem';
 const ListItem = React.lazy(() => import('./ListItem'));
 
@@ -32,11 +33,14 @@ const List: React.FC = () => {
       method: 'DELETE',
     }).then((response) => {
       if (response.ok) {
-        setAddresses((oldAddresses) => {
-          return oldAddresses.filter(
-            (oldAddress) => oldAddress.id !== address.id,
-          );
-        });
+        setAddresses((oldAddresses) =>
+          produce(oldAddresses, (draft) => {
+            draft.splice(
+              draft.findIndex((item) => item.id === address.id),
+              1,
+            );
+          }),
+        );
       }
     });
   }
