@@ -55,4 +55,14 @@ const ListItem: React.FC<Props> = ({ address, onDelete }) => {
   );
 };
 
-export default ListItem;
+function areEqual(prevProps: Props, nextProps: Props) {
+  // console.log(prevProps.address.firstname, nextProps.address.firstname);
+  return (
+    prevProps.address.id === nextProps.address.id &&
+    prevProps.address.firstname === nextProps.address.firstname &&
+    prevProps.address.lastname === nextProps.address.lastname &&
+    prevProps.address.email === nextProps.address.email
+  );
+}
+
+export default React.memo(ListItem, areEqual);
