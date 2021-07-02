@@ -3,9 +3,11 @@ const jsonServer = require('json-server');
 const path = require('path');
 const faker = require('faker');
 const cors = require('cors');
+const compression = require('compression');
 
 const app = express();
 app.use(cors());
+app.use(compression({ level: 7 }));
 
 app.get('/fakeUsers/:number', (req, res) => {
   const number = parseInt(req.params.number, 10);
