@@ -4,6 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import SearchIcon from '@material-ui/icons/Search';
 import { useHistory } from 'react-router-dom';
+import { getContact } from './util1';
 
 const StyledTableRow = withStyles((theme) => ({
   root: {
@@ -23,7 +24,9 @@ const ListItem: React.FC<Props> = ({ address, onDelete }) => {
   return (
     <StyledTableRow>
       <TableCell>{address.id}</TableCell>
-      <TableCell>{address.firstname}</TableCell>
+      <TableCell>
+        {address.firstname} {getContact(address)}
+      </TableCell>
       <TableCell>{address.lastname}</TableCell>
       <TableCell>{address.email}</TableCell>
       <TableCell>
