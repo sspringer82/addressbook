@@ -19,7 +19,7 @@
     "faker": "^5.5.3",
     "fontsource-roboto": "^4.0.0",
     "formik": "^2.2.9",
-    "immer": "^8.0.1",
+    "immer": "^9.0.6",
     "json-server": "^0.16.3",
     "lodash": "^4.17.21",
     "nodemon": "^2.0.9",
